@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login / Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="auth-container">
+    <div class="logo-container">
+      <ion-icon name="people-circle-outline" class="logo"></ion-icon>
+      <h2>Bienvenido</h2>
+    </div>
+    <ion-input class="input-field" [(ngModel)]="username" placeholder="Nombre de usuario"></ion-input>
+    <ion-input class="input-field" [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+    <ion-input class="input-field" [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
+
+    <ion-button class="auth-button" expand="block" (click)="login()">Iniciar sesión</ion-button>
+    <ion-button class="auth-button register-button" expand="block" fill="outline"
+      (click)="register()">Registrarse</ion-button>
+
+    <p *ngIf="error" class="error-message">{{ error }}</p>
+  </div>
+</ion-content>
+
+<style>
+  .auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    font-size: 60px;
+    color: #3880ff;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .input-field {
+    background: #f4f5f8;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+    --highlight-color-focused: #3880ff;
+    --border-radius: 10px;
+  }
+
+  .auth-button {
+    margin-bottom: 15px;
+    --border-radius: 10px;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .register-button {
+    --border-width: 2px;
+    --border-color: #3880ff;
+    --color: #3880ff;
+  }
+
+  .error-message {
+    color: #eb445a;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  h2 {
+    color: #3880ff;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .auth-button:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+
+  ion-input {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
